@@ -1,0 +1,499 @@
+@import "base.less";
+html,body{
+	font: 14px/1.2 "Lithos Pro Regular","Microsoft YaHei",'STHeiti Light',NSimSun;
+}
+body{
+	padding-bottom: 100px;
+}
+@color-bg: #CFF09E;
+@color-btn: #FE4365;
+@color-btn-secondary: #C8C8A9;
+@color-btn-active: #4ECDC4;
+.fontsize(@size: 24, @base: 16) {
+  font-size: @size + px;
+  font-size: (@size / @base) * 1rem;
+}
+
+ .border-radius(@radius) {
+  border-radius: @radius;
+  background-clip: padding-box;
+}
+
+.box-shadow(@shadows) {
+  	box-shadow: @shadows;
+}
+
+.transition-timing-function(@timing) {
+    transition-timing-function: @timing;
+}
+
+.animation(@animation) {
+  animation: @animation;
+}
+
+.transition-duration(@duration) {
+  transition-duration: @duration;
+}
+@keyframes gelatine{
+  from,to{
+    transform:scale(1, 1)
+  }
+  25%{
+    transform:scale(.9, 1.1)
+  }
+  50%{
+    transform:scale(1.1, .9)
+  }
+  75%{
+    transform:scale(.95, 1.05)
+  }
+  from,to{
+    transform:scale(1, 1)
+  }
+  25%{
+    transform:scale(.9, 1.1)
+  }
+  50%{
+    transform:scale(1.1, .9)
+  }75%{
+    transform:scale(.95, 1.05)
+  }
+}
+
+@keyframes downIn{
+	0% {
+	    opacity: 0;
+	    transform: translate3d(0,30px,0);
+	}
+}
+.banner1{
+	background-color: #f0edeb;
+	height: 980px;
+	position: relative;
+	overflow: hidden;
+	transition: all 0.4s ease-in-out;
+	.img1{
+		.wh(153,390);
+		display: block;
+		background: url("../img/banner_img1.jpg") no-repeat;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		transform: translate(-100%, 0);
+	}
+	.img2{
+		.wh(918,586);
+		display: block;
+		background: url("../img/banner_img2.jpg") no-repeat;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform: translate(100%, 0);
+	}
+	.title{
+		.wh(1006,202);
+		background: url("../img/title.png") no-repeat;
+		position: absolute;
+		left: 50%;
+		top: 399px;
+		margin-left: -503px;
+		transform: translate(0, 50px);
+		opacity: 0;
+	}
+	.img1,
+	.img2{
+		transition: all 0.4s ease-in-out;
+	}
+	.title{
+	    transition: all 0.4s ease-in-out;
+	}
+	.on{
+		&.img1,
+		&.img2,
+		&.title{
+			transform: translate(0, 0);
+			opacity: 1;
+			animation-play-state: running;
+		}
+	}
+}
+.nav{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 100;
+	width: 100%;
+	height: 100px;
+	background-color: #282828;
+	.title{
+		color: #fff;
+		float: left;
+		padding-top: 34px;
+		em{
+			font-style: normal;
+			float: left;
+			font: "Lithos Pro Regular";
+			letter-spacing:8px;
+		}
+		span{
+			height: 36px;
+			line-height: 36px;
+			border-right: 1px solid #fff;
+			padding-right: 23px;
+			margin-right: 21px;
+			font-size: 35px;
+			display: block;
+			float: left;
+		}
+	}
+	.btn{
+		padding-top: 24px;
+		float: right;
+		.wh(209,52);
+		background: url("../img/buy.png") no-repeat left 24px;
+		cursor: pointer;
+		&:hover, &:focus {
+			.animation (gelatine .5s 1);
+		}
+	}
+}
+
+.banner2{
+	height: 694px;
+	background-color: #ffa054;
+	position: relative;
+	.page{
+		position: absolute;
+		z-index: 10;
+		left: 50%;
+		top: 0;
+		margin-left: -502px;
+	}
+	.bor{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		z-index: 1;
+		background: url("../img/banner_bro.jpg") no-repeat;
+		width: 100%;
+		height: 54px;
+	}
+	.center_box{
+		width: 1003px;
+		height: 694px;
+		margin: 0 auto;
+		top: 0;
+		left: 0;
+		z-index: 99;
+		position: relative;
+		overflow: hidden;
+	}
+	.center_l,
+	.center_r{
+		background-color: #fff;
+		border-radius: 20px;
+		position: absolute;
+		padding: 10px 15px;
+		font-size: 18px;
+		line-height: 36px;
+		font-family: "STXihei Regular";
+		color: #1f1512;
+		&.on{
+			transform: translate(0, 0);
+		}
+	}
+	.center_l{
+		.lt(46,95);
+		.wh(195,308);
+		transform: translate(-150%, 0);
+		transition: all 0.4s ease-in-out;
+	}
+	.center_r{
+		.rt(20,197);
+		.wh(348,252);
+		transform: translate(150%, 0);
+		transition: all 0.8s ease-in-out;
+	}
+}
+.banner3{background: url(../img/banner2.jpg) no-repeat center top;height: 500px;}
+.banner4{background: url(../img/banner3.jpg) no-repeat center top;height: 337px;}
+.page{
+	// min-height: 500px;
+	position: relative;
+	.sj{
+		position: relative;
+		left: 50%;
+		top: 0;
+		margin-left: -102px;
+	    width: 0;
+	    height: 0;
+	    border-left: 102px solid transparent;
+	    border-right: 102px solid transparent;
+	    border-top: 51px solid #dddfde;
+	}
+}
+.wrap{
+	h2,h4{
+		text-align: center;
+		color: #1d222b;
+	}
+	h2{
+		font-size: 36px;
+		font-family: "Microsoft YaHei";
+		letter-spacing: 6px;
+		line-height: 56px;
+	}
+	h4{
+		font-size: 14px;
+		font-family: "Lithos Pro Regular";
+	}
+	li.lost{
+		margin-right: 0;
+	}
+}
+.course_{
+	padding-bottom: 60px;
+	h2{
+		font-size: 48px;
+		line-height: 68px;
+		padding-top: 35px;
+	}
+	h4{
+		font-size: 18px;
+		color: #1f1512;
+	}
+	ul{
+		width: 100%;
+		li{
+			float: left;
+			&:hover, &:focus {img{.animation (gelatine .5s 1);}}
+		}
+	}
+}
+.course_qy{
+	ul{
+		width: 100%;
+		padding-top: 94px;
+		li{
+			width: 20%;
+			float: left;
+		}
+		p{
+			line-height: 58px;
+			text-align: center;
+			font-size: 24px;
+		}
+		img{
+			width: 165px;
+			height: 165px;
+			display: block;
+			margin: 0 auto;
+		}
+	}
+}
+.course_ts{
+	ul{
+		width: 100%;
+		padding-top: 94px;
+		li{
+			// width: 25%;
+			width: 196px;
+			height: 233px;
+			padding: 0 19px;
+			float: left;
+			border: 1px solid #fd9657;
+			border-radius: 10px;
+			margin: 0 7px;
+			background-color: #f4f1f1;
+		}
+		h3{
+			font-size: 24px;
+			padding: 5px 0;
+			line-height: 44px;
+			text-align: center;
+			font-weight: normal;
+		}
+		p{
+			color: #1f1512;
+			line-height: 18px;
+			font-size: 14px;
+			font-family: "STXihei Regular";
+		}
+		img{
+			width: 112px;
+			height: 112px;
+			display: block;
+			margin: -56px auto 0;
+
+		}
+	}
+
+}
+.course_nr{
+	.nr_cen{
+		padding-top: 44px;
+		height: 944px;
+		overflow: hidden;
+	}
+	dl{
+		.wh(487,197);
+		border: 1px solid #bbb;
+		border-radius: 10px;
+		overflow: hidden;
+		float: left;
+		margin: 0 6px 26px;
+		transition: all 0.4s ease-in-out;
+		&:hover{
+			box-shadow: 0 10px 20px 1px #bbb;
+		}
+		// &:hover, &:focus {.animation (gelatine .5s 1);}
+	}
+	.one{
+		transform: translate(-120%, 0);
+	}
+	.two{
+		transform: translate(120%, 0);
+	}
+	.on{
+		&.one{
+			transform: translate(0, 0);
+		}
+		&.two{
+			transform: translate(0, 0);
+		}
+	}
+	dt{
+		height: 58px;
+		line-height: 58px;
+		text-align: center;
+		background-color: #fd9657;
+		font-size: 24px;
+		color: #fff;
+	}
+	dd{
+		padding-top: 20px;
+		padding-left: 45px;
+		padding-right: 50px;
+		position: relative;
+		font-size: 14px;
+		font-family: "STXihei Regular";
+		&:before{
+       		content: "";
+       		.wh(10,10);
+       		background-color: #a0a0a0;
+       		border-radius: 50%;
+       		display: block;
+       		position: absolute;
+       		left: 25px;
+       		top: 25px;
+		}
+	}
+	.nr_{
+		dt{
+			background-color: #bbb;
+		}
+	}
+}
+.course_tl{
+	.page{
+		height: 264px;
+		border: 1px dashed #bbb;
+		background: url("../img/sj.png") no-repeat right bottom;
+	}
+	.img_box{
+		float: left;
+	}
+	.cen_{
+		margin-left: 26px;
+		float: left;
+		h3{
+			.wh(142,46);
+			background-color: #ffa04e;
+			font-size: 32px;
+			color: #fff;
+			line-height: 46px;
+			text-align: center;
+			margin-bottom: 15px;	
+		}
+		p{
+			line-height: 28px;
+		}
+	}
+	.qr{
+		padding-top: 10px;	
+		img{
+			float: left;
+			margin-right: 14px;
+		}
+		.shuoming{
+			float: left;
+			padding-top: 38px;
+			font-size: 18px;
+			color: #1f1512;
+			.mf{
+				.wh(121,30);
+				background: url("../img/mf.png") no-repeat;
+				display: block;
+			}
+		}
+	}
+}
+.course_lc{
+	h2,h4{
+		text-align: left;
+	}
+	.liucheng{
+		padding: 30px 0;
+		img{
+			display: block;
+			margin: 0 auto;
+		}
+	}
+}
+.footer{
+	height: 206px;
+	.bgc(#272e3a);
+	.center{
+		height: 140px;
+		border-bottom: 1px solid #8b8e94;
+	}
+	.left_center,
+	.right_center{
+		float: left;
+	}
+	.left_center{
+		padding-top: 29px;
+		width: 515px;
+	}
+	.box_l{
+		.wh(515,85);
+		border-right: 1px solid #8b8e94;
+	}
+	.right_center{
+		padding-left: 76px;
+		padding-top: 28px;
+		color: #fff;
+		.f_list{
+			padding-left: 52px;
+			background-position: left top;
+			padding-bottom: 20px;
+		}
+		h5{
+			color: #e40c15;
+			font-size: 16px;
+		}
+		p{
+			font-size: 12px;
+		}
+	}
+	.page>p{
+		line-height: 50px;
+		text-align: center;
+		color: #fff;
+	}
+}
+.footer{
+	.f_list1{.bgm('../img/kefu.png');}
+	.f_list2{.bgm('../img/qq.png');}
+}
+@import "login.less";
